@@ -1,4 +1,3 @@
-
 import 'package:components/common_widget/app_button.dart';
 import 'package:components/common_widget/app_container.dart';
 import 'package:components/common_widget/app_text.dart';
@@ -7,7 +6,12 @@ import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class EventDetailsCard extends StatelessWidget {
-  const EventDetailsCard({super.key});
+  const EventDetailsCard({
+    super.key,
+    this.onRegisterPressed,
+  });
+
+  final void Function()? onRegisterPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +69,7 @@ class EventDetailsCard extends StatelessWidget {
               ),
               AppButton(
                 'Register',
+                onPressed: onRegisterPressed,
               )
             ],
           )
