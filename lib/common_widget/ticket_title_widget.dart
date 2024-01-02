@@ -11,6 +11,7 @@ class TicketTitleWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: Sizes.p24),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppText(
             'text',

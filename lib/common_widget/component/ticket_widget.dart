@@ -5,6 +5,7 @@ import 'package:components/common_widget/ticket_header.dart';
 import 'package:components/common_widget/ticket_price_card.dart';
 import 'package:components/common_widget/ticket_title_widget.dart';
 import 'package:components/common_widget/ticket_type_widget.dart';
+import 'package:components/constant/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 class TicketWidget extends StatelessWidget {
@@ -23,23 +24,27 @@ class TicketWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          TicketHeader(),
+          const TicketHeader(),
           TicketTypeWidget(
             svgAsset: ticketTypeIconSvgAssets,
           ),
-          Divider(),
-          TicketTitleWidget(),
-          Divider(),
+          const Divider(),
+          const TicketTitleWidget(),
+          const Divider(),
           ListView.builder(
+            physics: const ClampingScrollPhysics(),
             itemBuilder: (context, index) {
-              return TicketPriceCard();
+              return const TicketPriceCard();
             },
             itemCount: 2,
             shrinkWrap: true,
           ),
-          BenefitsWidget(),
-          Divider(),
-          QuantityWidget()
+          const Padding(
+            padding: EdgeInsets.all(Sizes.p16),
+            child: BenefitsWidget(),
+          ),
+          const Divider(),
+          const QuantityWidget()
         ],
       ),
     );

@@ -16,6 +16,7 @@ class TicketTypeWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(Sizes.p16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SvgPicture.asset(svgAsset),
           gapH12,
