@@ -13,14 +13,16 @@ class BenefitsWidget extends StatelessWidget {
       children: [
         AppText(
           'Benefits include:',
-          textStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
-            color: AppColors.txtSecondaryColor
-          ),
+          textStyle: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .copyWith(color: AppColors.txtSecondaryColor),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView.separated(
             shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
             itemBuilder: (context, index) {
               return Row(
                 children: [

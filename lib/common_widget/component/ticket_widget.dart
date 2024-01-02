@@ -23,6 +23,7 @@ class TicketWidget extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const TicketHeader(),
           TicketTypeWidget(
@@ -31,14 +32,16 @@ class TicketWidget extends StatelessWidget {
           const Divider(),
           const TicketTitleWidget(),
           const Divider(),
-          ListView.builder(
+          ListView.separated(
             physics: const ClampingScrollPhysics(),
             itemBuilder: (context, index) {
               return const TicketPriceCard();
             },
+            separatorBuilder: (_, __) => const Divider(),
             itemCount: 2,
             shrinkWrap: true,
           ),
+          const Divider(),
           const Padding(
             padding: EdgeInsets.all(Sizes.p16),
             child: BenefitsWidget(),
