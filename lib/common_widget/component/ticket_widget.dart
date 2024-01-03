@@ -12,9 +12,11 @@ class TicketWidget extends StatelessWidget {
   const TicketWidget({
     super.key,
     required this.ticketTypeIconSvgAssets,
+    this.isMostPopular = false,
   });
 
   final String ticketTypeIconSvgAssets;
+  final bool isMostPopular;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,10 @@ class TicketWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TicketHeader(),
+          Visibility(
+            visible: isMostPopular,
+            child: const TicketHeader(),
+          ),
           TicketTypeWidget(
             svgAsset: ticketTypeIconSvgAssets,
           ),
