@@ -1,6 +1,7 @@
 import 'package:components/common_widget/app_text.dart';
 import 'package:components/common_widget/plus_minus_widget.dart';
 import 'package:components/constant/app_sizes.dart';
+import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class QuantityWidget extends StatelessWidget {
@@ -9,13 +10,19 @@ class QuantityWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: Sizes.p12),
+      padding: const EdgeInsets.symmetric(
+          horizontal: Sizes.p16, vertical: Sizes.p12),
       child: Row(
         children: [
           Expanded(
-            child: AppText('Quantity: 2'),
+            child: AppText(
+              'Quantity: 2',
+              textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: AppColors.txtPrimaryColor,
+                  ),
+            ),
           ),
-          PlusMinusWidget(),
+          const PlusMinusWidget(),
         ],
       ),
     );
