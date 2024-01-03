@@ -15,6 +15,7 @@ class TicketPriceCard extends StatelessWidget {
         children: [
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppText(
                   'text',
