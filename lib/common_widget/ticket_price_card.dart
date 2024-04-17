@@ -1,5 +1,6 @@
 import 'package:components/common_widget/app_text.dart';
 import 'package:components/common_widget/price_txt_widget.dart';
+import 'package:components/constant/app_sizes.dart';
 import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -18,13 +19,14 @@ class TicketPriceCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppText(
-                  'text',
+                  'Buy soon: 12 days to go',
                   textStyle: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: AppColors.infoColor,
                       ),
                 ),
+                gapH4,
                 AppText(
-                  'text',
+                  'Early Bird',
                   textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: AppColors.txtDisabledColor,
                       ),

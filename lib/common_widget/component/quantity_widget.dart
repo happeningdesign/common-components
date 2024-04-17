@@ -11,7 +11,7 @@ class QuantityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          horizontal: Sizes.p16, vertical: Sizes.p12),
+          horizontal: Sizes.p16, vertical: Sizes.p8),
       child: Row(
         children: [
           Expanded(

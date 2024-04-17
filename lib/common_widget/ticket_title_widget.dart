@@ -1,6 +1,7 @@
 import 'package:components/common_widget/app_text.dart';
 import 'package:components/common_widget/price_txt_widget.dart';
 import 'package:components/constant/app_sizes.dart';
+import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TicketTitleWidget extends StatelessWidget {
@@ -14,8 +15,10 @@ class TicketTitleWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppText(
-            'text',
-            textStyle: Theme.of(context).textTheme.labelSmall,
+            'Hurry, Only a few left',
+            textStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
+              color: AppColors.errorColor
+            ),
           ),
           gapH4,
           AppText(

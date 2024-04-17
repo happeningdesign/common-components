@@ -13,15 +13,17 @@ class TicketWidget extends StatelessWidget {
     super.key,
     required this.ticketTypeIconSvgAssets,
     this.isMostPopular = false,
+    this.width,
   });
 
   final String ticketTypeIconSvgAssets;
   final bool isMostPopular;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return AppContainer(
-      width: double.maxFinite,
+      width: width ?? double.maxFinite,
       padding: EdgeInsets.zero,
       child: Column(
         mainAxisSize: MainAxisSize.min,
