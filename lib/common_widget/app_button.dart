@@ -7,21 +7,50 @@ class AppButton extends StatelessWidget {
     super.key,
     this.textStyle,
     this.onPressed,
+    this.isLeftIcon = false,
+    this.isRightIcon = false,
+    this.icon,
+    this.minimumSize = const Size(110, 50),
+    this.shape,
   });
 
   final TextStyle? textStyle;
   final String text;
   final void Function()? onPressed;
+  final Size minimumSize;
+  final OutlinedBorder? shape;
+  final bool isLeftIcon, isRightIcon;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton(
-      onPressed: onPressed,
-      child: AppText(
-        text,
-        textStyle: textStyle,
-      ),
-    );
+    return (isLeftIcon || isRightIcon)
+        ? Directionality(
+            textDirection: isLeftIcon ? TextDirection.ltr : TextDirection.rtl,
+            child: FilledButton.icon(
+              onPressed: onPressed,
+              style: TextButton.styleFrom(
+                minimumSize: minimumSize,
+                shape: shape,
+              ),
+              icon: icon!,
+              label: AppText(
+                text,
+                textStyle: textStyle,
+              ),
+            ),
+          )
+        : FilledButton(
+            style: FilledButton.styleFrom(
+              minimumSize: minimumSize,
+              shape: shape,
+            ),
+            onPressed: onPressed,
+            child: AppText(
+              text,
+              textStyle: textStyle,
+            ),
+          );
   }
 }
 /*

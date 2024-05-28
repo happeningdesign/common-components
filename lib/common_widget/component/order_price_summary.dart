@@ -2,10 +2,26 @@ import 'package:components/common_widget/app_text.dart';
 import 'package:components/common_widget/app_text_field.dart';
 import 'package:components/constant/app_sizes.dart';
 import 'package:components/theme/app_colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OrderPriceSummaryWidget extends StatelessWidget {
-  const OrderPriceSummaryWidget({super.key});
+  const OrderPriceSummaryWidget({
+    super.key,
+    this.subTotal,
+    this.gatewayFee,
+    this.gst,
+    this.totalAmount,
+    this.discountPercentage,
+    this.discountAmount,
+  });
+
+  final String? subTotal;
+  final String? gatewayFee;
+  final String? gst;
+  final String? totalAmount;
+  final String? discountPercentage;
+  final String? discountAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +29,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
       color: Colors.white,
       padding: const EdgeInsets.symmetric(
         horizontal: Sizes.p16,
-        vertical: Sizes.p24,
+        //  vertical: Sizes.p16,
       ),
       child: Column(
         children: [
@@ -42,7 +58,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
             ],
           ),
           gapH24,*/
-        /*  const Divider(),*/
+          /*  const Divider(),*/
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,11 +75,10 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                     ),
                   ),
                   AppText(
-                    '₹11,797',
-                    textStyle:
-                        Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: AppColors.txtPrimaryColor,
-                            ),
+                    subTotal ?? '11,797',
+                    textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.txtPrimaryColor,
+                        ),
                   ),
                 ],
               ),
@@ -80,11 +95,10 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                     ),
                   ),
                   AppText(
-                    '₹11,797',
-                    textStyle:
-                        Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: AppColors.txtPrimaryColor,
-                            ),
+                    gatewayFee ?? '11,797',
+                    textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.txtPrimaryColor,
+                        ),
                   ),
                 ],
               ),
@@ -93,7 +107,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AppText(
-                      'GST (18%)',
+                      'IGST (18%)',
                       textStyle:
                           Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 color: AppColors.txtPrimaryColor,
@@ -101,18 +115,49 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                     ),
                   ),
                   AppText(
-                    '₹11,797',
-                    textStyle:
-                        Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: AppColors.txtPrimaryColor,
-                            ),
+                    gst ?? '11,797',
+                    textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.txtPrimaryColor,
+                        ),
                   ),
                 ],
               ),
               gapH16,
+              Visibility(
+                visible: (discountAmount?.isNotEmpty ?? false),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: AppText(
+                              'Discount',
+                              textStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                    color: AppColors.greenColor,
+                                  ),
+                            ),
+                          ),
+                          AppText(
+                            '-${discountAmount ?? '11,797'}',
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  color: AppColors.greenColor,
+                                ),
+                          ),
+                        ],
+                      ),
+                      gapH16,
+                    ]),
+              )
             ],
           ),
-          Divider(),
+          const Divider(),
           gapH16,
           Row(
             children: [
@@ -125,7 +170,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                 ),
               ),
               AppText(
-                '₹11,797',
+                totalAmount ?? '11,797',
                 textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
                       color: AppColors.txtPrimaryColor,
                     ),

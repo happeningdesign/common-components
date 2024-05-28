@@ -6,34 +6,27 @@ import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AboutEventOrganisorWidget extends StatelessWidget {
-   AboutEventOrganisorWidget({super.key});
-  final List<EventDetailItem> items = [
-    EventDetailItem(
-        text: 'UMO Design Foundation',
-        icon: const Icon(Icons.perm_contact_cal_outlined)),
-    EventDetailItem(
-        text: 'www.umo.design',
-        icon: const Icon(Icons.open_in_new_outlined)),
-  ];
+  AboutEventOrganisorWidget({
+    super.key,
+    required this.title,
+    required this.items,
+  });
+
+  final String title;
+  final List<EventDetailItem> items;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppText(
-          'ABOUT THE ORGANISER',
-          textStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: AppColors.txtSecondaryColor,
-              ),
-        ),
-        gapH8,
         AppContainer(
+          showShadow: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppText(
-                'ORGANISED BY',
+                title,
                 textStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
                       color: AppColors.txtSecondaryColor,
                     ),
@@ -42,7 +35,7 @@ class AboutEventOrganisorWidget extends StatelessWidget {
               ListView.separated(
                 itemBuilder: (context, index) {
                   return TextButton.icon(
-                    onPressed: () {},
+                    onPressed: items[index].onTap,
                     label: Align(
                       alignment: Alignment.centerLeft,
                       child: AppText(
@@ -57,6 +50,7 @@ class AboutEventOrganisorWidget extends StatelessWidget {
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5, vertical: 4),
+                      disabledIconColor: items[index].icon.color
                     ),
                   );
                 },

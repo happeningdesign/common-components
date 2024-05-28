@@ -7,54 +7,35 @@ import 'package:flutter/material.dart';
 class EventDetailItem {
   final String text;
   final Icon icon;
+  final Function()? onTap;
 
-  EventDetailItem({required this.text, required this.icon});
+  EventDetailItem({this.onTap, required this.text, required this.icon});
 }
 
 class EventDetailsCard extends StatelessWidget {
   EventDetailsCard({
     super.key,
     this.onRegisterPressed,
+    required this.items,
+    required this.title,
   });
 
   final void Function()? onRegisterPressed;
-  final List<EventDetailItem> items = [
-    EventDetailItem(
-        text: '17 - 21 SEP,  2024',
-        icon: const Icon(Icons.calendar_today_outlined)),
-    EventDetailItem(
-        text: '8 AM | 9 PM (IST)',
-        icon: const Icon(Icons.access_time_outlined)),
-    EventDetailItem(
-        text: 'Hitex Exhibition Center, Hyderabad',
-        icon: const Icon(Icons.location_on_outlined)),
-    EventDetailItem(
-        text: 'uxindia@umo.design', icon: const Icon(Icons.email_outlined)),
-    EventDetailItem(
-        text: '+91-8096204373', icon: const Icon(Icons.phone_enabled_outlined)),
-    EventDetailItem(
-        text: '2023.UX-INDIA.ORG',
-        icon: const Icon(Icons.open_in_new_outlined)),
-  ];
+  final List<EventDetailItem> items;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppText(
-          'EVENT INFORMATION',
-          textStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: AppColors.txtSecondaryColor,
-              ),
-        ),
-        gapH8,
         AppContainer(
+          showShadow: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppText(
-                'UXINDIA 2024: International Conference in User Experience Design',
+                title,
                 textStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                       color: AppColors.txtPrimaryColor,
@@ -65,7 +46,7 @@ class EventDetailsCard extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return TextButton.icon(
-                    onPressed: () {},
+                    onPressed: items[index].onTap,
                     label: Align(
                       alignment: Alignment.centerLeft,
                       child: AppText(
@@ -80,11 +61,13 @@ class EventDetailsCard extends StatelessWidget {
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5, vertical: 4),
+                      disabledIconColor: items[index].icon.color,
                     ),
                   );
                 },
                 separatorBuilder: (_, __) => gapH4,
                 itemCount: items.length,
+                physics: NeverScrollableScrollPhysics(),
               ),
               /*gapH24,
               Row(

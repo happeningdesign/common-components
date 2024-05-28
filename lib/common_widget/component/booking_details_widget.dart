@@ -32,8 +32,8 @@ class BookingDetailsWidget extends StatelessWidget {
               ),
             ),
             gapW16,
-            AppCachedNetworkImage(
-              imageUrl: imageUrl,
+            Image.asset(
+               imageUrl,
               width: 88,
               height: 88,
             )
@@ -49,8 +49,8 @@ class BookingDetailsWidget extends StatelessWidget {
             ),
             Expanded(
               child: ListItemWidget(
-                title: 'Time',
-                value: '8 AM | 9 PM (IST)',
+                title: 'Date',
+                value: '12th to 15th SEP',
               ),
             ),
           ],
@@ -60,14 +60,14 @@ class BookingDetailsWidget extends StatelessWidget {
           children: [
             Expanded(
               child: ListItemWidget(
-                title: 'Time',
-                value: '8 AM | 9 PM (IST)',
+                title: 'Location',
+                value: 'Bengaluru',
               ),
             ),
             Expanded(
               child: ListItemWidget(
-                title: 'Time',
-                value: '8 AM | 9 PM (IST)',
+                title: 'Organized By',
+                value: 'UMO Design Foundation',
               ),
             ),
           ],

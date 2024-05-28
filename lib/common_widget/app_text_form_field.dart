@@ -1,9 +1,10 @@
 import 'package:components/constant/app_sizes.dart';
 import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class AppTextField extends StatelessWidget {
-  const AppTextField({
+class AppTextFormField extends StatelessWidget {
+  const AppTextFormField({
     super.key,
     this.hintStyle,
     this.inputBorder,
@@ -16,6 +17,10 @@ class AppTextField extends StatelessWidget {
     this.enabled,
     this.readOnly = false,
     this.onChanged,
+    this.validator,
+    this.inputFormatters,
+    this.keyboardType,
+    this.obscureText = false,
   });
 
   final String hintText;
@@ -29,14 +34,24 @@ class AppTextField extends StatelessWidget {
   final bool? enabled;
   final bool readOnly;
   final Function(String?)? onChanged;
+  final String? Function(String?)? validator;
+  final List<TextInputFormatter>? inputFormatters;
+  final TextInputType? keyboardType;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      obscureText: obscureText,
       enabled: enabled,
       onTap: onTap,
       readOnly: readOnly,
       controller: controller,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+        color: AppColors.txtSecondaryColor,
+        fontWeight: FontWeight.w400,
+      ),
       decoration: InputDecoration(
           border: inputBorder ??
               OutlineInputBorder(
@@ -58,8 +73,11 @@ class AppTextField extends StatelessWidget {
           isDense: true,
           suffixIcon: suffixIcon,
           floatingLabelBehavior: FloatingLabelBehavior.always),
+      inputFormatters: inputFormatters,
+      keyboardType: keyboardType,
       maxLines: maxLines,
       onChanged: onChanged,
+      validator: validator,
     );
   }
 }

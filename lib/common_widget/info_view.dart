@@ -7,13 +7,13 @@ class InfoView extends StatelessWidget {
     super.key,
     required this.leadingIcon,
     required this.titleTxt,
-    required this.trailing,
+    this.trailing,
     this.bgColor = Colors.white,
   });
 
   final Widget leadingIcon;
   final Widget titleTxt;
-  final Widget trailing;
+  final Widget? trailing;
   final Color bgColor;
 
   @override
@@ -21,8 +21,9 @@ class InfoView extends StatelessWidget {
     return AppContainer(
       showShadow: false,
       bgColor: bgColor,
+      padding: EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           leadingIcon,
           gapW12,
@@ -30,7 +31,7 @@ class InfoView extends StatelessWidget {
             child: titleTxt,
           ),
           gapW12,
-          trailing
+          trailing??SizedBox.shrink()
         ],
       ),
     );

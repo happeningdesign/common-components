@@ -6,8 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BookingConfirmedWidget extends StatelessWidget {
-  const BookingConfirmedWidget({super.key, required this.svgAssets});
+  const BookingConfirmedWidget({
+    super.key,
+    required this.svgAssets,
+    required this.email,
+  });
+
   final String svgAssets;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +24,20 @@ class BookingConfirmedWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SvgPicture.asset(svgAssets,),
+          SvgPicture.asset(
+            svgAssets,
+          ),
+          gapH24,
           AppText(
             'Booking Confirmed!',
             textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
                   color: AppColors.txtPrimaryColor,
+                  fontWeight: FontWeight.w400,
                 ),
           ),
           gapH12,
           AppText(
-            'Your tickets are successfully booked. A confirmation email has been sent to jamesdoe200@gmail.com',
+            'Your tickets are successfully booked. A confirmation email has been sent to $email',
             textStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: AppColors.txtPrimaryColor,
                 ),

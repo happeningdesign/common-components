@@ -75,7 +75,11 @@ class AttendeeCardItem extends StatelessWidget {
             controller: TextEditingController(),
           ),
           gapH24,
-          const AppCheckBox(),
+          const AppCheckBox(
+            title:
+                'This data that is collected will be used by the organiser to plan and manage the event for which you registered, as well as email you relevant details about the event. By placing this order I also agree to the organiser\'s terms.',
+            value: false,
+          ),
           const Divider(),
           gapH16,
           AppText(
@@ -110,7 +114,10 @@ class AttendeeCardItem extends StatelessWidget {
                 ),
                 isRightIcon: true,
               ),
-              AppButton('Save',onPressed: (){},),
+              AppButton(
+                'Save',
+                onPressed: () {},
+              ),
             ],
           ),
         ],

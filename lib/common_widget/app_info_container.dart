@@ -18,6 +18,7 @@ class AppInfoContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppContainer(
       padding: EdgeInsets.zero,
+      showShadow: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

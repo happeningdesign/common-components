@@ -1,4 +1,6 @@
 import 'package:components/common_widget/app_text.dart';
+import 'package:components/constant/app_sizes.dart';
+import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTxtButton extends StatelessWidget {
@@ -8,8 +10,10 @@ class AppTxtButton extends StatelessWidget {
     required this.title,
     this.isLeftIcon = false,
     this.isRightIcon = false,
-     this.icon,
+    this.icon,
     this.textStyle,
+    this.shape,
+    this.minimumSize = const Size(110, 50),
   });
 
   final void Function()? onPressed;
@@ -17,6 +21,8 @@ class AppTxtButton extends StatelessWidget {
   final bool isLeftIcon, isRightIcon;
   final Widget? icon;
   final TextStyle? textStyle;
+  final Size minimumSize;
+  final OutlinedBorder? shape;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +31,10 @@ class AppTxtButton extends StatelessWidget {
             textDirection: isLeftIcon ? TextDirection.ltr : TextDirection.rtl,
             child: TextButton.icon(
               onPressed: onPressed,
+              style: TextButton.styleFrom(
+                minimumSize: minimumSize,
+                shape: shape,
+              ),
               icon: icon!,
               label: AppText(
                 title,
@@ -34,6 +44,10 @@ class AppTxtButton extends StatelessWidget {
           )
         : TextButton(
             onPressed: onPressed,
+            style: TextButton.styleFrom(
+              minimumSize: minimumSize,
+              shape: shape,
+            ),
             child: AppText(
               title,
               textStyle: textStyle,

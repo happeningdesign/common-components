@@ -6,7 +6,7 @@ class CommonDropDownWidget<T> extends StatelessWidget {
   const CommonDropDownWidget({
     super.key,
     this.width = 70,
-    this.height = 30,
+    this.height = 42,
     this.onChanged,
     required this.items,
     this.value,
@@ -20,8 +20,8 @@ class CommonDropDownWidget<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 70,
-      height: 30,
+      width: width,
+      height: height,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           side: BorderSide(
