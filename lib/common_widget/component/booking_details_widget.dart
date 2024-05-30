@@ -50,7 +50,7 @@ class BookingDetailsWidget extends StatelessWidget {
             Expanded(
               child: ListItemWidget(
                 title: 'Date',
-                value: '12th to 15th SEP',
+                value: '17th to 21th SEP',
               ),
             ),
           ],

@@ -55,11 +55,11 @@ class BookingAttendeeDetailsWidget extends StatelessWidget {
               ),
             ),
             gapW16,
-            AppCachedNetworkImage(
+            /*AppCachedNetworkImage(
               imageUrl: imageUrl,
               width: 88,
               height: 88,
-            )
+            )*/
           ],
         ),
          Row(
