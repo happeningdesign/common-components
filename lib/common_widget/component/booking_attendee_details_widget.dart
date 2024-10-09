@@ -5,6 +5,7 @@ import 'package:components/common_widget/list_item_widget.dart';
 import 'package:components/constant/app_sizes.dart';
 import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class BookingAttendeeDetailsWidget extends StatelessWidget {
   const BookingAttendeeDetailsWidget({
@@ -15,9 +16,11 @@ class BookingAttendeeDetailsWidget extends StatelessWidget {
     required this.imageUrl,
     required this.ticketNo,
     required this.ticketType,
+    required this.qrData,
   });
 
   final String title, name, email, imageUrl, ticketNo, ticketType;
+  final String qrData;
 
   @override
   Widget build(BuildContext context) {
@@ -55,11 +58,16 @@ class BookingAttendeeDetailsWidget extends StatelessWidget {
               ),
             ),
             gapW16,
-            /*AppCachedNetworkImage(
-              imageUrl: imageUrl,
-              width: 88,
-              height: 88,
-            )*/
+            SizedBox(
+              width: 80,
+              child: Center(
+                child: QrImageView(
+                  data: qrData,
+                  size: 80.0,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
          Row(

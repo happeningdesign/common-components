@@ -7,13 +7,14 @@ import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BookingDetailsWidget extends StatelessWidget {
-  const BookingDetailsWidget({
+  BookingDetailsWidget({
     super.key,
     required this.title,
     required this.imageUrl,
+    required this.date,
   });
 
-  final String title, imageUrl;
+  final String title, imageUrl, date;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,8 @@ class BookingDetailsWidget extends StatelessWidget {
             Expanded(
               child: AppText(
                 title,
-                textStyle: Theme.of(context)
+                textStyle: Theme
+                    .of(context)
                     .textTheme
                     .bodyLarge
                     ?.copyWith(color: AppColors.txtPrimaryColor),
@@ -33,15 +35,15 @@ class BookingDetailsWidget extends StatelessWidget {
             ),
             gapW16,
             Image.asset(
-               imageUrl,
+              imageUrl,
               width: 88,
               height: 88,
             )
           ],
         ),
-        const Row(
+        Row(
           children: [
-            Expanded(
+            const Expanded(
               child: ListItemWidget(
                 title: 'Time',
                 value: '8 AM | 9 PM (IST)',
@@ -50,7 +52,7 @@ class BookingDetailsWidget extends StatelessWidget {
             Expanded(
               child: ListItemWidget(
                 title: 'Date',
-                value: '17th to 21th SEP',
+                value: date,
               ),
             ),
           ],
@@ -61,7 +63,7 @@ class BookingDetailsWidget extends StatelessWidget {
             Expanded(
               child: ListItemWidget(
                 title: 'Location',
-                value: 'Bengaluru',
+                value: 'Chamara Vajra, Bengaluru, KA, India.',
               ),
             ),
             Expanded(

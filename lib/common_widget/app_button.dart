@@ -12,6 +12,7 @@ class AppButton extends StatelessWidget {
     this.icon,
     this.minimumSize = const Size(110, 50),
     this.shape,
+    this.backgroundColor,
   });
 
   final TextStyle? textStyle;
@@ -21,6 +22,7 @@ class AppButton extends StatelessWidget {
   final OutlinedBorder? shape;
   final bool isLeftIcon, isRightIcon;
   final Widget? icon;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class AppButton extends StatelessWidget {
               style: TextButton.styleFrom(
                 minimumSize: minimumSize,
                 shape: shape,
+                backgroundColor: backgroundColor,
               ),
               icon: icon!,
               label: AppText(
@@ -44,6 +47,7 @@ class AppButton extends StatelessWidget {
             style: FilledButton.styleFrom(
               minimumSize: minimumSize,
               shape: shape,
+              backgroundColor: backgroundColor,
             ),
             onPressed: onPressed,
             child: AppText(

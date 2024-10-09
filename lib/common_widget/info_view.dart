@@ -8,6 +8,7 @@ class InfoView extends StatelessWidget {
     required this.leadingIcon,
     required this.titleTxt,
     this.trailing,
+    this.padding,
     this.bgColor = Colors.white,
   });
 
@@ -15,13 +16,14 @@ class InfoView extends StatelessWidget {
   final Widget titleTxt;
   final Widget? trailing;
   final Color bgColor;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
     return AppContainer(
       showShadow: false,
       bgColor: bgColor,
-      padding: EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
+      padding: padding?? EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

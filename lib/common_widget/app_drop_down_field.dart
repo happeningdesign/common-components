@@ -13,26 +13,27 @@ class AppDropdownInput<T> extends StatelessWidget {
   final String? Function(T?)? validator;
   final Widget? suffixIcon;
   final InputBorder? inputBorder;
+  final EdgeInsetsGeometry contentPadding;
 
-  const AppDropdownInput({
-    super.key,
-    this.hintText = 'Please select an Option',
-    this.labelText = 'Please select an Option',
-    this.options = const [],
-    required this.getLabel,
-    required this.value,
-    required this.onChanged,
-    this.suffixIcon,
-    this.validator,
-    this.inputBorder,
-  });
+  const AppDropdownInput(
+      {super.key,
+      this.hintText = 'Please select an Option',
+      this.labelText = 'Please select an Option',
+      this.options = const [],
+      required this.getLabel,
+      required this.value,
+      required this.onChanged,
+      this.suffixIcon,
+      this.validator,
+      this.inputBorder,
+      this.contentPadding =
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 15.0)});
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
       decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 15.0),
+        contentPadding: contentPadding,
         labelText: labelText,
         hintText: hintText,
         floatingLabelBehavior: FloatingLabelBehavior.always,
