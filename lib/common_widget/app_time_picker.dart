@@ -10,12 +10,14 @@ class AppTimePicker extends StatelessWidget {
     required this.labelText,
     required this.controller,
     this.validator,
+    this.fillColor,
   });
 
   final String hintText;
   final String labelText;
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class AppTimePicker extends StatelessWidget {
       suffixIcon: const Icon(Icons.access_time),
       controller: controller,
       validator: validator,
+      fillColor: fillColor,
     );
   }
 

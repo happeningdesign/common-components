@@ -11,6 +11,7 @@ class AppContainer extends StatelessWidget {
     this.bgColor = Colors.white,
     this.showShadow = true,
     this.borderRadius = 8,
+    this.borderColor,
   });
 
   final EdgeInsetsGeometry padding;
@@ -18,6 +19,7 @@ class AppContainer extends StatelessWidget {
   final double? height, width;
   final Clip? clipBehavior;
   final Color bgColor;
+  final Color? borderColor;
   final bool showShadow;
   final double borderRadius;
 
@@ -32,6 +34,7 @@ class AppContainer extends StatelessWidget {
         color: bgColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
+          side: BorderSide(color: borderColor??bgColor)
         ),
         shadows: showShadow
             ? const [

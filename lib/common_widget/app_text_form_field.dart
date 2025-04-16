@@ -12,6 +12,7 @@ class AppTextFormField extends StatelessWidget {
     required this.controller,
     this.labelText,
     this.suffixIcon,
+    this.prefixIcon,
     this.maxLines,
     this.onTap,
     this.enabled,
@@ -21,6 +22,7 @@ class AppTextFormField extends StatelessWidget {
     this.inputFormatters,
     this.keyboardType,
     this.obscureText = false,
+    this.fillColor,
   });
 
   final String hintText;
@@ -29,6 +31,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? inputBorder;
   final TextEditingController controller;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final int? maxLines;
   final void Function()? onTap;
   final bool? enabled;
@@ -38,6 +41,7 @@ class AppTextFormField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final bool obscureText;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -49,30 +53,37 @@ class AppTextFormField extends StatelessWidget {
       controller: controller,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-        color: AppColors.txtSecondaryColor,
-        fontWeight: FontWeight.w400,
-      ),
+            color: AppColors.txtSecondaryColor,
+            fontWeight: FontWeight.w400,
+          ),
       decoration: InputDecoration(
-          border: inputBorder ??
-              OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    width: 0.01,
-                    color: AppColors.inputBorderColor,
-                  ),
-                  borderRadius: BorderRadius.circular(Sizes.p8)),
-          hintText: hintText,
-          labelText: labelText,
-          hintStyle: hintStyle ??
-              Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.txtSecondaryColor,
-                  ),
-          labelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: AppColors.txtSecondaryColor,
-                fontWeight: FontWeight.w400,
+        border: inputBorder ??
+            OutlineInputBorder(
+              borderSide: const BorderSide(
+                width: 0.01,
+                color: AppColors.inputBorderColor,
               ),
-          isDense: true,
-          suffixIcon: suffixIcon,
-          floatingLabelBehavior: FloatingLabelBehavior.always),
+              borderRadius: BorderRadius.circular(Sizes.p8),
+            ),
+        hintText: hintText,
+        labelText: labelText,
+        hintStyle: hintStyle ??
+            Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.txtSecondaryColor,
+                ),
+        labelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: AppColors.txtSecondaryColor,
+              fontWeight: FontWeight.w400,
+            ),
+        fillColor: fillColor,
+        filled: fillColor != null,
+        isDense: true,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
+      ),
       inputFormatters: inputFormatters,
       keyboardType: keyboardType,
       maxLines: maxLines,

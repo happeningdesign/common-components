@@ -26,6 +26,7 @@ class AppStyledText extends StatelessWidget {
               .bodySmall
               ?.copyWith(color: AppColors.txtSecondaryColor),
       tags: tags,
+      textAlign: TextAlign.center,
     );
   }
 }
