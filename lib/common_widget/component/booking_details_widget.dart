@@ -1,5 +1,3 @@
-import 'package:components/common_widget/app_asset_image.dart';
-import 'package:components/common_widget/app_cached_netword_image.dart';
 import 'package:components/common_widget/app_text.dart';
 import 'package:components/common_widget/list_item_widget.dart';
 import 'package:components/constant/app_sizes.dart';
@@ -7,14 +5,15 @@ import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BookingDetailsWidget extends StatelessWidget {
-  BookingDetailsWidget({
+  const BookingDetailsWidget({
     super.key,
     required this.title,
     required this.imageUrl,
     required this.date,
+    required this.location,
   });
 
-  final String title, imageUrl, date;
+  final String title, imageUrl, date, location;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +25,7 @@ class BookingDetailsWidget extends StatelessWidget {
             Expanded(
               child: AppText(
                 title,
-                textStyle: Theme
-                    .of(context)
+                textStyle: Theme.of(context)
                     .textTheme
                     .bodyLarge
                     ?.copyWith(color: AppColors.txtPrimaryColor),
@@ -58,15 +56,15 @@ class BookingDetailsWidget extends StatelessWidget {
           ],
         ),
         gapH8,
-        const Row(
+        Row(
           children: [
             Expanded(
               child: ListItemWidget(
                 title: 'Location',
-                value: 'Chamara Vajra, Bengaluru, KA, India.',
+                value: location,
               ),
             ),
-            Expanded(
+            const Expanded(
               child: ListItemWidget(
                 title: 'Organized By',
                 value: 'UMO Design Foundation',
