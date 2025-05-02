@@ -82,7 +82,7 @@ class AppTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         contentPadding:
-            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
+            const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
       ),
       inputFormatters: inputFormatters,
       keyboardType: keyboardType,
