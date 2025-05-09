@@ -23,6 +23,7 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType,
     this.obscureText = false,
     this.fillColor,
+    this.floatingLabelBehavior = FloatingLabelBehavior.always,
   });
 
   final String hintText;
@@ -42,6 +43,7 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool obscureText;
   final Color? fillColor;
+  final FloatingLabelBehavior? floatingLabelBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,7 @@ class AppTextFormField extends StatelessWidget {
         isDense: true,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelBehavior: floatingLabelBehavior,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
       ),

@@ -14,6 +14,7 @@ class AppDropdownInput<T> extends StatelessWidget {
   final Widget? suffixIcon;
   final InputBorder? inputBorder;
   final EdgeInsetsGeometry contentPadding;
+  final FloatingLabelBehavior? floatingLabelBehavior;
 
   const AppDropdownInput(
       {super.key,
@@ -26,6 +27,7 @@ class AppDropdownInput<T> extends StatelessWidget {
       this.suffixIcon,
       this.validator,
       this.inputBorder,
+      this.floatingLabelBehavior = FloatingLabelBehavior.always,
       this.contentPadding =
           const EdgeInsets.symmetric(horizontal: 16.0, vertical: 15.0)});
 
@@ -36,7 +38,7 @@ class AppDropdownInput<T> extends StatelessWidget {
         contentPadding: contentPadding,
         labelText: labelText,
         hintText: hintText,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelBehavior: floatingLabelBehavior,
         border: inputBorder ??
             OutlineInputBorder(
                 borderSide: const BorderSide(
