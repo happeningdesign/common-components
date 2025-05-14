@@ -49,6 +49,8 @@ class AppDropdownInput<T> extends StatelessWidget {
         suffixIcon: suffixIcon,
         hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.txtSecondaryColor,
+              fontWeight: FontWeight.w400,
+          fontSize: 12,
             ),
         labelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.txtSecondaryColor,
