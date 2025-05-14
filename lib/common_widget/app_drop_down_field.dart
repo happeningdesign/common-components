@@ -49,8 +49,6 @@ class AppDropdownInput<T> extends StatelessWidget {
         suffixIcon: suffixIcon,
         hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.txtSecondaryColor,
-              fontWeight: FontWeight.w400,
-          fontSize: 12,
             ),
         labelStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.txtSecondaryColor,
@@ -76,6 +74,12 @@ class AppDropdownInput<T> extends StatelessWidget {
           ),
         );
       }).toList(),
+      hint: AppText(
+        hintText,
+        textStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: AppColors.txtSecondaryColor,
+            ),
+      ),
     );
   }
 }
