@@ -7,11 +7,13 @@ class AppCheckBox extends StatelessWidget {
     required this.title,
     required this.value,
     this.onChanged,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
   });
 
   final String title;
   final bool value;
   final Function(bool?)? onChanged;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class AppCheckBox extends StatelessWidget {
       visible: title.isNotEmpty,
       replacement: Checkbox(value: value, onChanged: onChanged),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: crossAxisAlignment,
         children: [
           Checkbox(value: value, onChanged: onChanged),
           Expanded(
