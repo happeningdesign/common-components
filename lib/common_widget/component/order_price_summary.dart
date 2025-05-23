@@ -1,5 +1,6 @@
 import 'package:components/common_widget/app_text.dart';
 import 'package:components/common_widget/app_text_field.dart';
+import 'package:components/common_widget/extension/format_price_ext.dart';
 import 'package:components/constant/app_sizes.dart';
 import 'package:components/theme/app_colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +11,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
     super.key,
     this.subTotal,
     this.gatewayFee,
-    this.gst,
+    required this.gst,
     this.totalAmount,
     this.discountPercentage,
     this.discountAmount,
@@ -18,7 +19,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
 
   final String? subTotal;
   final String? gatewayFee;
-  final String? gst;
+  final double gst;
   final String? totalAmount;
   final String? discountPercentage;
   final String? discountAmount;
@@ -107,7 +108,7 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AppText(
-                      'IGST (18%)',
+                      'CGST (9%)',
                       textStyle:
                           Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 color: AppColors.txtPrimaryColor,
@@ -115,10 +116,30 @@ class OrderPriceSummaryWidget extends StatelessWidget {
                     ),
                   ),
                   AppText(
-                    gst ?? '11,797',
+                    (gst/2).formatPrice(),
                     textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
                           color: AppColors.txtPrimaryColor,
                         ),
+                  ),
+                ],
+              ),
+              gapH16,
+              Row(
+                children: [
+                  Expanded(
+                    child: AppText(
+                      'SGST (9%)',
+                      textStyle:
+                      Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: AppColors.txtPrimaryColor,
+                      ),
+                    ),
+                  ),
+                  AppText(
+                    (gst/2).formatPrice(),
+                    textStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: AppColors.txtPrimaryColor,
+                    ),
                   ),
                 ],
               ),
