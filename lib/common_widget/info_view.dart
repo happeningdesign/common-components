@@ -7,6 +7,7 @@ class InfoView extends StatelessWidget {
     super.key,
     required this.leadingIcon,
     required this.titleTxt,
+    this.descTxt,
     this.trailing,
     this.padding,
     this.bgColor = Colors.white,
@@ -14,6 +15,7 @@ class InfoView extends StatelessWidget {
 
   final Widget leadingIcon;
   final Widget titleTxt;
+  final Widget? descTxt;
   final Widget? trailing;
   final Color bgColor;
   final EdgeInsets? padding;
@@ -23,17 +25,23 @@ class InfoView extends StatelessWidget {
     return AppContainer(
       showShadow: false,
       bgColor: bgColor,
-      padding: padding?? EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
+      padding: padding?? const EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           leadingIcon,
           gapW12,
           Expanded(
-            child: titleTxt,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                titleTxt,
+                descTxt??const SizedBox.shrink(),
+              ],
+            ),
           ),
           gapW12,
-          trailing??SizedBox.shrink()
+          trailing??const SizedBox.shrink()
         ],
       ),
     );
