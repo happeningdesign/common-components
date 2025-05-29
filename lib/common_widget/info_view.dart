@@ -11,6 +11,7 @@ class InfoView extends StatelessWidget {
     this.trailing,
     this.padding,
     this.bgColor = Colors.white,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   });
 
   final Widget leadingIcon;
@@ -19,15 +20,17 @@ class InfoView extends StatelessWidget {
   final Widget? trailing;
   final Color bgColor;
   final EdgeInsets? padding;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return AppContainer(
       showShadow: false,
       bgColor: bgColor,
-      padding: padding?? const EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
+      padding: padding ??
+          const EdgeInsets.symmetric(horizontal: Sizes.p16, vertical: 13),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: crossAxisAlignment,
         children: [
           leadingIcon,
           gapW12,
@@ -36,12 +39,12 @@ class InfoView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 titleTxt,
-                descTxt??const SizedBox.shrink(),
+                descTxt ?? const SizedBox.shrink(),
               ],
             ),
           ),
           gapW12,
-          trailing??const SizedBox.shrink()
+          trailing ?? const SizedBox.shrink()
         ],
       ),
     );
