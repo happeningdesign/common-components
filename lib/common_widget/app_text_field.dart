@@ -16,11 +16,13 @@ class AppTextField extends StatelessWidget {
     this.enabled,
     this.readOnly = false,
     this.onChanged,
+    this.textStyle,
   });
 
   final String hintText;
   final String? labelText;
   final TextStyle? hintStyle;
+  final TextStyle? textStyle;
   final InputBorder? inputBorder;
   final TextEditingController controller;
   final Widget? suffixIcon;
@@ -37,6 +39,11 @@ class AppTextField extends StatelessWidget {
       onTap: onTap,
       readOnly: readOnly,
       controller: controller,
+      style: textStyle ??
+          Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: AppColors.txtSecondaryColor,
+                fontWeight: FontWeight.w400,
+              ),
       decoration: InputDecoration(
           border: inputBorder ??
               OutlineInputBorder(
