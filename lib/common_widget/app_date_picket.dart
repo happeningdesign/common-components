@@ -13,8 +13,10 @@ class AppDatePicker extends StatelessWidget {
     required this.controller,
     this.validator,
     this.fillColor,
+    this.dateFormat = 'MM/dd/yyyy',
   });
 
+  final String dateFormat;
   final DateTime firstDate;
   final DateTime lastDate;
   final String hintText;
@@ -59,7 +61,7 @@ class AppDatePicker extends StatelessWidget {
           );
         });
     if (selectedDate != null) {
-      controller.text = DateFormat('MM/dd/yyyy').format(selectedDate);
+      controller.text = DateFormat(dateFormat).format(selectedDate);
     }
   }
 }
