@@ -8,12 +8,14 @@ class AppCheckBox extends StatelessWidget {
     required this.value,
     this.onChanged,
     this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.titleTextStyle,
   });
 
   final String title;
   final bool value;
   final Function(bool?)? onChanged;
   final CrossAxisAlignment crossAxisAlignment;
+  final TextStyle? titleTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,8 @@ class AppCheckBox extends StatelessWidget {
           Expanded(
             child: AppText(
               title,
-              textStyle: Theme.of(context).textTheme.labelLarge,
+              textStyle:
+                  titleTextStyle ?? Theme.of(context).textTheme.labelLarge,
             ),
           ),
         ],
