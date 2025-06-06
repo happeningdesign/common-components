@@ -17,6 +17,7 @@ class AppTextField extends StatelessWidget {
     this.readOnly = false,
     this.onChanged,
     this.textStyle,
+    this.mouseCursor,
   });
 
   final String hintText;
@@ -31,6 +32,7 @@ class AppTextField extends StatelessWidget {
   final bool? enabled;
   final bool readOnly;
   final Function(String?)? onChanged;
+  final MouseCursor? mouseCursor;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class AppTextField extends StatelessWidget {
       onTap: onTap,
       readOnly: readOnly,
       controller: controller,
+      mouseCursor: mouseCursor,
       style: textStyle ??
           Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: AppColors.txtSecondaryColor,
