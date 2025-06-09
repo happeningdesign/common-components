@@ -61,6 +61,8 @@ class AppDatePicker extends StatelessWidget {
           );
         });
     if (selectedDate != null) {
+      print(dateFormat);
+      print(selectedDate.toString());
       controller.text = DateFormat(dateFormat).format(selectedDate);
     }
   }
