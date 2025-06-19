@@ -1,6 +1,4 @@
 import 'package:components/common_widget/app_text.dart';
-import 'package:components/constant/app_sizes.dart';
-import 'package:components/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTxtButton extends StatelessWidget {
@@ -14,6 +12,7 @@ class AppTxtButton extends StatelessWidget {
     this.textStyle,
     this.shape,
     this.minimumSize = const Size(110, 50),
+    this.backgroundColor,
   });
 
   final void Function()? onPressed;
@@ -23,6 +22,7 @@ class AppTxtButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Size minimumSize;
   final OutlinedBorder? shape;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +34,7 @@ class AppTxtButton extends StatelessWidget {
               style: TextButton.styleFrom(
                 minimumSize: minimumSize,
                 shape: shape,
+                backgroundColor: backgroundColor,
               ),
               icon: icon!,
               label: AppText(
@@ -47,6 +48,7 @@ class AppTxtButton extends StatelessWidget {
             style: TextButton.styleFrom(
               minimumSize: minimumSize,
               shape: shape,
+              backgroundColor: backgroundColor,
             ),
             child: AppText(
               title,
