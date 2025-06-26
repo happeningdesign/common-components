@@ -20,6 +20,8 @@ class AppChip extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
       ),
+      labelPadding: EdgeInsets.zero,
+      padding: EdgeInsets.zero,
       label: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
