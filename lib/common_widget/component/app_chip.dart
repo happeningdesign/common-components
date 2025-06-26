@@ -19,6 +19,7 @@ class AppChip extends StatelessWidget {
       backgroundColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
+        side: const BorderSide(color: Colors.transparent,width: 0)
       ),
       labelPadding: EdgeInsets.zero,
       padding: EdgeInsets.zero,
