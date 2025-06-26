@@ -16,13 +16,21 @@ class AppChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Chip(
-      backgroundColor: backgroundColor,
-      label: AppText(
-        label,
-        textStyle: textStyle ??
-            Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontSize: 13,
-                ),
+      backgroundColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100),
+      ),
+      label: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: backgroundColor ?? Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: AppText(
+          label,
+          textStyle: textStyle ??
+              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 13),
+        ),
       ),
     );
   }
