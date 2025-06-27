@@ -10,11 +10,13 @@ class AppStyledText extends StatelessWidget {
     super.key,
     this.textStyle,
     this.tags,
+    this.textAlign = TextAlign.center,
   });
 
   final String title;
   final TextStyle? textStyle;
   final Map<String, StyledTextTagBase>? tags;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class AppStyledText extends StatelessWidget {
               .bodySmall
               ?.copyWith(color: AppColors.txtSecondaryColor),
       tags: tags,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
     );
   }
 }
