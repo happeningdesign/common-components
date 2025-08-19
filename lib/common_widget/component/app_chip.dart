@@ -32,7 +32,7 @@ class AppChip extends StatelessWidget {
         child: AppText(
           label,
           textStyle: textStyle ??
-              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 13),
+              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 12),
         ),
       ),
     );
