@@ -11,6 +11,7 @@ class AppText extends StatelessWidget {
     this.icon,
     this.isRightIcon = false,
     this.maxLine,
+    this.overflow,
   });
 
   final TextStyle? textStyle;
@@ -20,6 +21,7 @@ class AppText extends StatelessWidget {
   final Widget? icon;
   final bool isRightIcon;
   final int? maxLine;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class AppText extends StatelessWidget {
                   textAlign: textAlign,
                   textStyle: textStyle,
                   textDirection: textDirection,
+                  overflow: overflow,
                 ),
               ],
             ),
@@ -47,6 +50,7 @@ class AppText extends StatelessWidget {
             textAlign: textAlign,
             textDirection: textDirection,
             maxLines: maxLine,
+            overflow: overflow,
           );
   }
 }
